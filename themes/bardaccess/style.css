@@ -1,0 +1,336 @@
+/*
+Theme Name: Bard Access Intranet
+Theme URI: http://www.bardaccess.com
+Description: Custom theme for bardaccess - built on the wp-bootstrap theme (http://320press.com/wpbs) which is built upon the bones framework (http://themble.com/bones/) and uses the Bootstrap by Twitter (http://getbootstrap.com).
+Version: 3.0
+Author: Bard Access Media Strategies Group
+Author URI: http://www.bardaccess.com
+Tags: black, white, one-column, two-columns, flexible-width, custom-background, custom-colors, custom-menu, full-width-template, theme-options
+License: GNU General Public License v2.0 & Apache License 2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/licenses/LICENSE-2.0
+*/
+
+/* HEADS UP: Everything that you will normally find here can be found in the library/less/wp.less */
+
+
+
+
+/* Alternate navbars
+// --------------------------------------------------
+*/
+
+/* Bootstrap Overrides */
+
+body {
+    padding-top: 39px;
+    background: #fff url('images/top-bg.png') no-repeat fixed top center;
+}
+body.admin-bar .navbar-fixed-top {
+    top: 0px;
+}
+
+a {
+	color:#23B04C;
+}
+
+a:hover {
+	color:#109a9c;
+}
+
+.well{
+	box-shadow: none;
+	border-radius:0px;
+	-moz-border-radius: 0px;
+}
+
+.label-info {
+    background-color: #109a9c;
+}
+
+.navbar-profile {
+	background:#f9f9f9;
+	border: none;
+}
+
+#object-nav {
+	margin-top:0px;
+	padding-left:0px;
+	margin-bottom:0px;
+}
+
+#object-nav .navbar-nav > li > a {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight:600;
+	padding-left:13px;
+	padding-right: 13px;
+}
+
+.breadcrumb > li +li.last:before {
+    content: "";
+    padding: 0px 5px;
+    color: #CCC;
+}
+
+#activity-filter-by, #groups-sort-by, #members-friends, #notifications-sort-order-list{
+	height: 23px;
+line-height: 47px;
+padding-top: 1px;
+font-size: 11px;
+margin-top: -3px;
+}
+
+.panel-default {
+	padding: 5px 20px 20px 20px;
+	background: #f7f7f7;
+	border-radius: 1px;
+	border: 1px solid #ececec;
+}
+
+.panel-body{
+/*
+	padding-left:0px;
+	padding-right:0px;
+*/
+}
+
+/* Buddypress Overrides */
+
+#item-header-avatar{
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: -10px;
+}
+
+#item-header-content{
+	float: left;
+}
+
+#item-header-content h2 {
+	margin-top:0px;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 21px;
+}
+
+#item-meta {
+	padding-top:10px;
+}
+
+
+.user-logged-in-image{
+	float:left;	
+	margin-right:15px;
+}
+
+.user-logged-in-image img{
+}
+
+.user-logged-in-info{
+	float:left;
+	margin-right:15px;
+}
+
+.user-logged-in-info p{
+
+}
+.user-logged-in-info a{
+	color:#fff;
+	text-transform: uppercase;
+}
+
+.user-notifications{
+	float:left;
+}
+
+.mce-content-body{
+	background: none repeat scroll 0% 0% #EEE !important;
+	padding-top: 0px !important;
+	height: 120px !important;
+}
+
+.mce-flow-layout{
+	display:none !important;
+}
+
+.mce-toolbar-grp {
+	display:none !important;
+}
+
+#whats-new-submit{
+	margin-top:20px;
+	margin-bottom:20px;
+	height: auto;
+	overflow: auto;
+}
+
+#insert-media-button{
+	margin-bottom:10px;
+	float:left;
+}
+
+#custom-editor {
+	background: none repeat scroll 0% 0% #EEE !important;
+}
+
+#user-hide{
+	display:none;
+}
+
+/*
+.main > .activity{
+	background:#fff;
+}
+*/
+
+.activity-avatar{
+	float:left;
+	margin-right:10px;
+}
+
+.activity-meta{
+	text-align: left;
+	margin-top: 17px;
+}
+
+.activity-comments{
+	border-top: 1px solid #ECECEC;
+	padding-top: 20px;
+	margin-top:20px;
+}
+
+.activity-comments ul{
+	list-style: none;
+	padding-left: 0px;
+}
+
+.activity-comments ul li{
+	list-style: none;
+	background: #f2f2f2;
+	margin-bottom:-1px;
+}
+
+.ac-form{
+	background: none repeat scroll 0% 0% #F2F2F2;
+	border: 1px solid #E3E3E3;
+	padding: 10px;
+}
+
+.ac-input{
+	width:100%;
+	margin-bottom:8px;
+	border: 1px solid #ececec;
+	height: 60px;
+	padding: 4px;
+}
+
+.time-since{
+	font-style:italic;
+	color:#ccc;
+}
+
+.acomment-content {
+	text-align:left;
+}
+
+.acomment-meta img{
+	margin-right:5px;
+}
+
+.bp_members header{
+	display:none;
+}
+
+	/*MESSAGES*/
+	.messages-options-nav {
+		display:none;
+	}
+	
+	.messages-notices .read{border-bottom: 1px solid #ECECEC;border-top: 1px solid #ECECEC;}
+	.messages-notices .unread{border-bottom: 1px solid #ECECEC;border-top: 1px solid #ECECEC;background:#f5f5f5;}
+
+	#user-pag{text-align:right;width:100%;font-style:italic;}
+	
+	.message-metadata{margin-bottom:10px;}
+	.message-box {margin-bottom:10px;}
+
+
+	/*NOTIFICATIONS*/
+	#notifications-sort-order { margin-top:-20px; }
+	.notification-settings { width:100%;margin-top:10px;}
+	.yes {width:90px;text-align:right;}
+	.no {width:90px;text-align:right;}
+	
+	/* FRIENDS */
+	.panel-body .item-avatar { float:left; margin-right:20px;}
+	.friends-list-title {font-size: 15px;font-weight: 700;margin-top: 10px;width: 100%; }
+
+
+	.members-list {margin-right: -3%;}
+	.members-list li {float:left;width:47%;margin-right:3%;}
+
+
+/* BAS top area & navbar */
+
+.navbar-bas {
+	background-color: #23b04c;
+	min-height: 30px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.top-message {
+	padding-top:10px;
+}
+
+.top-login {
+	padding-top:10px;
+	float: right;
+}
+
+.top-container {
+	width:100%;
+}
+
+.navbar-default{
+	background:transparent;
+	border: 0px;
+	min-height:100px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	text-transform: uppercase;
+	color:#56bc6c;
+	font-weight: 600;
+}
+
+.navbar-nav > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	background:#e1e1e1;
+	color:#029f76;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #3aa987;	
+}
+	
+.navbar-default .navbar-nav > li > a:active {
+	background:#e1e1e1;
+	color:#029f76;
+}
+		
+.navbar-collapse {
+	margin-top:30px;
+}
+
+.header-menu{
+	width:100%;
+	border-bottom:5px solid #ccc;
+	height:105px;
+}
+
