@@ -405,6 +405,8 @@ if ( class_exists( 'TitanFrameworkOption' ) ) {
 			/**
 			 * Windows sometimes mixes up forward and back slashes, ensure forward slash for
 			 * correct URL output.
+			 *
+			 * @see  TitanFramework::getURL()
 			 */
 			$parentTheme = str_replace( '\\', '/', $parentTheme );
 			$childTheme  = str_replace( '\\', '/', $childTheme );
