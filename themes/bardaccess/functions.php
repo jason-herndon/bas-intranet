@@ -17,7 +17,7 @@ Author: Jason Herndon
 	function initalize_theme_and_create_admin_panel() {
 		
 	    // We create all our options here
-	    $titan = TitanFramework::getInstance( 'my-theme' );
+	    $titan = TitanFramework::getInstance( 'bas-theme' );
 
 		// Load in the the Theme Menu
 		require locate_template('library/theme-menu.php');

@@ -36,10 +36,10 @@ Author: Jason Herndon
 	require_once('custom/user-roles.php');
 
  	// From FirmaSite && BuddyPress
-	require_once('buddypress/fix.php');				// Little fix Functions
+	require_once('buddypress/fix.php');					// Little fix Functions
 	require_once('buddypress/infinite-scroll.php'); 	// infinite-scroll
 	require_once('buddypress/honeypot.php');			// Honeypot
-	require_once('buddypress/plugins.php');			// Buddypress + bbPress
+	require_once('buddypress/plugins.php');				// Buddypress + bbPress
 	
 	// Include the TGM_Plugin_Activation class.
 	require_once( 'frameworks/class-tgm-plugin-activation.php');

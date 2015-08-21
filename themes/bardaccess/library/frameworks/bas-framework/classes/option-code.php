@@ -168,16 +168,14 @@ class TitanFrameworkOptionCode extends TitanFrameworkOption {
 	 * @since	1.3
 	 */
 	public function loadAdminScripts() {
-		wp_enqueue_script( 'tf-ace', TitanFramework::getURL( 'js/ace-min-noconflict/ace.js', __FILE__ ) );
+		wp_enqueue_script( 'tf-ace', get_template_directory_uri() . '/library/frameworks/bas-framework/js/ace-min-noconflict/ace.js' );
 		wp_enqueue_script(
 			'tf-ace-theme-' . $this->settings['theme'],
-			TitanFramework::getURL( 'js/ace-min-noconflict/theme-' . $this->settings['theme'] . '.js',
-			__FILE__ )
+			get_template_directory_uri() . '/library/frameworks/bas-framework/js/ace-min-noconflict/theme-' . $this->settings['theme'] . '.js'
 		);
 		wp_enqueue_script(
 			'tf-ace-mode-' . $this->settings['lang'],
-			TitanFramework::getURL( 'js/ace-min-noconflict/mode-' . $this->settings['lang'] . '.js',
-			__FILE__ )
+			get_template_directory_uri() . '/library/frameworks/bas-framework/js/ace-min-noconflict/mode-' . $this->settings['lang'] . '.js'
 		);
 	}
 

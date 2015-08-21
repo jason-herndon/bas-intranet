@@ -21,7 +21,6 @@ class TitanFramework {
 	private $allOptions;
 
 	public $cssInstance;
-	public $trackerInstance;
 
 	// We have an initialization phase where the options are just being gathered
 	// for processing, during this phase we need to stop certain steps when creat
@@ -64,7 +63,6 @@ class TitanFramework {
 		do_action( 'tf_init_' . $this->optionNamespace, $this );
 
 		$this->cssInstance = new TitanFrameworkCSS( $this );
-		$this->trackerInstance = new TitanFrameworkTracker( $this );
 
 		add_action( 'after_setup_theme', array( $this, 'getAllOptions' ), 7 );
 		add_action( 'init', array( $this, 'updateOptionDBListing' ), 12 );
@@ -162,9 +160,9 @@ class TitanFramework {
 		// Only enqueue scripts if we're on a Titan options page
 		if ( in_array( $hook, $panel_ids ) || count($this->metaBoxes) ) {
 			wp_enqueue_media();
-			wp_enqueue_script( 'tf-serialize', TitanFramework::getURL( 'js/serialize.js', __FILE__ ) );
-			wp_enqueue_script( 'tf-styling', TitanFramework::getURL( 'js/admin-styling.js', __FILE__ ) );
-			wp_enqueue_style( 'tf-admin-styles', TitanFramework::getURL( 'css/admin-styles.css', __FILE__ ) );
+			wp_enqueue_script( 'tf-serialize', get_template_directory_uri() . '/library/frameworks/bas-framework/js/serialize.js' );
+			wp_enqueue_script( 'tf-styling', get_template_directory_uri() . '/library/frameworks/bas-framework/js/admin-styling.js' );
+			wp_enqueue_style( 'tf-admin-styles', get_template_directory_uri() . '/library/frameworks/bas-framework/css/admin-styles.css' );
 		}
 	}
 
@@ -495,47 +493,6 @@ class TitanFramework {
 		</div>
 		<?php
 	}
-
-
-	/**
-	 * Acts the same way as plugins_url( 'script', __FILE__ ) but returns then correct url
-	 * when called from inside a theme.
-	 *
-	 * @param   string $script the script to get the url to, relative to $file
-	 * @param   string $file the current file, should be __FILE__
-	 * @return  string the url to $script
-	 * @since   1.1.2
-	 */
-	public static function getURL( $script, $file ) {
-		$parentTheme = trailingslashit( get_template_directory() );
-		$childTheme = trailingslashit( get_stylesheet_directory() );
-		$plugin = trailingslashit( dirname( $file ) );
-
-		// Windows sometimes mixes up forward and back slashes, ensure forward slash for
-		// correct URL output
-		$parentTheme = str_replace( '\\', '/', $parentTheme );
-		$childTheme = str_replace( '\\', '/', $childTheme );
-		$file = str_replace( '\\', '/', $file );
-
-		// framework is in a parent theme
-		if ( stripos( $file, $parentTheme ) !== false ) {
-			$dir = trailingslashit( dirname( str_replace( $parentTheme, '', $file ) ) );
-			if ( $dir == './' ) {
-				$dir = '';
-			}
-			return trailingslashit( get_template_directory_uri() ) . $dir . $script;
-		// framework is in a child theme
-		} else if ( stripos( $file, $childTheme ) !== false ) {
-			$dir = trailingslashit( dirname( str_replace( $childTheme, '', $file ) ) );
-			if ( $dir == './' ) {
-				$dir = '';
-			}
-			return trailingslashit( get_stylesheet_directory_uri() ) . $dir . $script;
-		}
-		// framework is a or in a plugin
-		return plugins_url( $script, $file );
-	}
-
 
 	/**
 	 * Sets a value in the $setting class variable
