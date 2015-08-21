@@ -33,7 +33,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('post_tag', 'ExtendedProfiles_cats'), // this is IMPORTANT
-		   'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		   'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	);
 
@@ -63,7 +63,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('post_tag'), // this is IMPORTANT
-		  'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		  'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	);
 
@@ -95,7 +95,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('IDP_cats'), // this is IMPORTANT
-		  'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		  'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	  );
 
@@ -125,7 +125,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('ST_cats'), // this is IMPORTANT
-		   'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		   'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	  );
 
@@ -155,7 +155,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('post_tag'), // this is IMPORTANT
-		   'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		   'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	  );
 
@@ -185,7 +185,7 @@ function it_create_post_types() {
 		  'show_in_nav_menus' => false,
 		  'exclude_from_search' => true,
 		  'taxonomies' => array('post_tag'), // this is IMPORTANT
-		   'menu_icon' => get_template_directory_uri() . '/library/includes/img/admin/custom-post-type.png',
+		   'menu_icon' => get_template_directory_uri() . '/library/frameworks/bas-framework/img/admin/custom-post-type.png',
 		)
 	  );
 

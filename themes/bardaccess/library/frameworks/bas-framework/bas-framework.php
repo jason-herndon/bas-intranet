@@ -101,7 +101,7 @@ class TitanFrameworkPlugin {
 			TitanFramework::$initializing = true;
 		}
 
-		do_action( 'tf_create_options' );
+		do_action( 'bas_create_options' );
 
 		TitanFramework::$initializing = false;
 	}
