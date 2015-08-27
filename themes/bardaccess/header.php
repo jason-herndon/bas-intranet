@@ -37,7 +37,24 @@ error_reporting(E_ALL);
 
 		<!-- Begin Navbar -->
 		<nav class="top-bar" data-topbar>
-			<div class="row">
+
+			<!-- Login Bar -->
+			<div class="login-bar row">
+				<div class="header-login large-4 columns right">
+					<div class="user-avatar">
+						<img src="http://placehold.it/25x25">
+					</div>
+					<div class="user-name">
+						Lauren O'Connell
+					</div>
+					<div class="user-notifications right">
+						<i class="fa fa-bell"></i> <span class="round alert label">3</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Top Nagivation Bar -->
+			<div class="top-nav-bar row">
 				<div class="large-12 columns">
 					<ul class="title-area">
 					  <li class="name">

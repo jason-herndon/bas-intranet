@@ -1,7 +1,7 @@
 <?php
 /**
  * The default template file
- * @package Carbon
+ * @package BAS
  */
 ?>
 

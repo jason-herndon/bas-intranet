@@ -23,32 +23,165 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
  * Global
  */
 
-
+.row {
+	max-width:72.5rem;
+}
 
 /* 
  * Header
  */
 
+.top-bar {
+	background:#fff;
+	height: auto;
+}
+
 .top-bar .row {
-	max-width:62.5rem;
+	max-width:72.5rem;
+	max-height: 40px;
+	height: 40px;
 }
 
-.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
-	border-right: none;
-}
+	.login-bar {
+		margin-bottom:0.5375rem;
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+	}
+		.header-login {
+			background:rgb(00,150,169);
+			padding-left: 0.5375rem;
+			padding-right: 0.5375rem;
+			line-height: 2.125rem;
+			padding-bottom: 0.2375rem;
+		}
 
-.site-logo {
-	vertical-align: inherit;
-}
+		.header-login .user-avatar {
+			float:left;
+			margin-right:10px;
+		}
+
+		.header-login .user-name {
+			font-family: 'Source Sans Pro', sans-serif;
+			color:#fff;
+			font-weight: 600;
+			font-size: 0.79rem;
+			text-transform: uppercase;
+			float:left;
+		}
+
+		.header-login .fa {
+			color:#fff;
+			padding-top: 10px;
+		}
+
+		.header-login .label.alert {
+			background:#fff;
+			color:rgb(00,150,160);
+		}
+
+	.top-bar .name h1 a{
+		color:#333;
+	}
+
+	.top-bar .name h1 a{
+		font-family: 'Source Sans Pro', sans-serif;
+		color:#444;
+		padding-left: 50px;
+	}
+
+	.site-logo {
+		vertical-align: inherit;
+	}
+
+	.top-bar-section ul li > a {
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight:700;
+		font-size: 1.05rem;
+		text-transform: uppercase;
+	}
+
+	.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+		border-right: none;
+	}
+
+	.top-bar-section li.active:not(.has-form) a:not(.button) {
+		background:#fff;
+		border-top:3px solid rgb(00,150,169);
+		color:#777;
+	}
+
+	.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+		background:#fff;
+		border-top:3px solid rgb(00,150,169);
+		color:#777;
+	}
+
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		background:#fff;
+		border-top:3px solid #fff;
+		color:rgb(00,150,169);
+	}
+
+	.top-bar-section li:not(.has-form) a:hover:not(.button) {
+		background:#fff;
+		border-top:3px solid rgb(00,150,169);
+		color:#777;
+	}
 
 /* 
  * Homepage
+
+
+.slider-overlay-1 {
+height: 40px;
+border-bottom: 3px solid #999;
+border-right: 4px solid #999;
+transform: skew(-87deg);
+background: #FFF none repeat scroll 0% 0%;
+}
+
+.slider-overlay-2 {
+height: 70px;
+transform: skew(88deg);
+background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+border-right: 4px solid rgb(51, 51, 51);
+border-bottom: 3px solid #333;
+}
  */
 
-.homepage-slider {
-	margin-top: 1.8125rem;
-	margin-bottom: 1.8125rem;
+.slider-overlay {
+	background: url('includes/sample-data/slider-overlay.png') transparent;
+	height: 70px;
+	position: relative;
+    margin-top: -13px;
 }
+
+
+.homepage-slider {
+	margin-top: 0px;
+	margin-bottom: 0.4375rem;
+}
+
+	.homepage-slider img {
+		margin-top:-70px;
+	}
+
+.featured-boxes {
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
+}
+
+	.featured-box {
+		padding-right:0.4375rem;
+		padding-left:0px;
+	}
+
+	.featured-box:last-child{
+		padding-left: 0px;
+		padding-right: 0px;
+		max-height: 230px;
+		overflow: hidden;
+	}
 
 /* 
  * Footer

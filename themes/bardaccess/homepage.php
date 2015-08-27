@@ -1,28 +1,18 @@
 <?php
 /**
 * Template Name: Homepage
-* @package Carbon
+* @package BAS
 */
 ?>
 
 <?php get_header(); ?>
 
-    <?php
 
-        $enabledHomePageRows = get('homepage_row_order');
-
-        // Check to see if Homepage rows are extended
-        if (count($enabledHomePageRows) > 0)
-        {
-            // Loop through each content type
-            foreach ($enabledHomePageRows as $content)
-            {
-                // Include Homepage Content
-                get_template_part('includes/partials/' . $content, 'home');   
-            }
-        }
-
-    ?>
+   <!-- Include Homepage Slider Area -->
+    <?php get_template_part('includes/partials/slider', 'home') ?>        
+ 
+   <!-- Include Homepage Feature Boxes Area -->
+    <?php get_template_part('includes/partials/feature-boxes', 'home') ?>        
 
     <!-- Homepage Content Area -->
     <div class="row"> 
