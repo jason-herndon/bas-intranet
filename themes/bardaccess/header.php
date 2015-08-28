@@ -23,8 +23,56 @@ error_reporting(E_ALL);
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-   	<!-- LOGGED IN USER -->
-	<?php get_template_part( 'includes/partials', 'users' ); ?>
+   	<?php
+   	// LOGGED IN USER
+	$current_user = wp_get_current_user();
+
+	// declare user variables as global
+	global $current_user_username;
+	global $current_user_email;
+	global $current_user_firstname;
+	global $current_user_lastname;
+	global $current_user_displayname;
+	global $current_user_id;
+
+	// set global variables
+	if($current_user->user_login)
+	{
+		$current_user_username = $current_user->user_login;
+		$current_user_email = $current_user->user_email;
+		$current_user_firstname = $current_user->user_firstname;
+		$current_user_lastname = $current_user->user_lastname;
+		$current_user_displayname = $current_user->display_name;
+		$current_user_id = $current_user->ID;
+
+		// get the current users role
+		$user_role = bas_get_user_role();
+
+		// get avatars
+		$avatar	= get_avatar( $current_user_email, 25 );
+		$avatar_200	= get_avatar( $current_user_email, 220 );
+		$loginClass = '4';
+		$loginLink = "/intranet/members/".$current_user_username;
+
+	} else {
+		$current_user_displayname = 'Login';
+		$avatar = '<span class="float:right;"><img src="'.get_template_directory_uri().'/includes/img/bas-avatar.png"></span>';
+		$avatar_200 = get_avatar('Bard Access Systems', 220);
+		$loginClass = '1';
+		$loginLink = "#";
+	}
+
+	if (function_exists(bp_is_active)) {
+		if ( bp_is_user() && bp_user_has_access() ) {
+			$notification_count    = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() );
+		} else {
+			$notification_count = 0;
+		}
+	} else {
+		$notification_count = 0;
+	}
+
+	?>
 
   </head>
 
@@ -40,15 +88,15 @@ error_reporting(E_ALL);
 
 			<!-- Login Bar -->
 			<div class="login-bar row">
-				<div class="header-login large-4 columns right">
+				<div class="header-login large-<?php echo $loginClass;?> columns right">
 					<div class="user-avatar">
-						<img src="http://placehold.it/25x25">
+						<?php echo $avatar; ?>
 					</div>
 					<div class="user-name">
-						Lauren O'Connell
+						<a href="<?php echo $loginLink; ?>"><?php echo $current_user_displayname; ?></a>
 					</div>
 					<div class="user-notifications right">
-						<i class="fa fa-bell"></i> <span class="round alert label">3</span>
+						</i> <?php if ($notification_count > 0) { ?><i class="fa fa-bell"><span class="round alert label"><?php echo notification_count; ?></span><?php } ?>
 					</div>
 				</div>
 			</div>

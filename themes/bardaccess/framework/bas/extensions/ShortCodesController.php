@@ -617,6 +617,55 @@ if ( !function_exists('bas_add_faqs') ) {
 	}
 }
 
+/**
+ * Sliders
+ */
+if ( !function_exists('bas_add_sliders') ) {
+	function bas_add_sliders($atts, $content = null) {
+		// Get the attributes
+	    extract(shortcode_atts(array(
+		    'navigation' => '', // True or False to Show next and prev buttons
+		    'slideSpeed' => '', // Slide Speed in miliseconds (eg. 300)
+		    'paginationSpeed' => '', // Speed at which pages change (eg. 400)
+		    'singleItem' => '', // True or False to show one item
+			      // "singleItem:true" is a shortcut for:
+			      // items : 1, 
+			      // itemsDesktop : false,
+			      // itemsDesktopSmall : false,
+			      // itemsTablet: false,
+			      // itemsMobile : false
+		    // See http://www.owlgraphic.com/owlcarousel/index.html for more options
+	    ), $atts));
+
+	    // Do the query
+	    $slider_args = array( 
+			'post_type'           => 'slide',
+			'posts_per_page'      => -1,
+			'ignore_sticky_posts' => 1,
+		);
+
+		global $slider_query;
+	    $slider_query = new WP_Query( $slider_args );
+	       
+	    if ( $slider_query->have_posts() ) :
+			?><div id="owl-homepage-slider" class="owl-carousel owl-theme">
+	            while ( $faq_query->have_posts() ) : $faq_query->the_post(); 
+					?>
+					<div class="item"><img src="assets/fullimage1.jpg" alt="The Last of us"></div>
+					<div class="item"><img src="assets/fullimage2.jpg" alt="GTA V"></div>
+					<div class="item"><img src="assets/fullimage3.jpg" alt="Mirror Edge"></div>
+					<?php
+	            endwhile; // end of the loop 
+			?></div><?php // close the block-grid
+	            
+	    // if no posts are found
+		else : 
+	    endif; // end have_posts() check
+	    wp_reset_query();
+
+	}
+}
+
 function register_shortcodes() {
 	add_shortcode('alert', 'bas_add_alerts');
 	add_shortcode('button', 'bas_add_buttons');
@@ -634,6 +683,7 @@ function register_shortcodes() {
 	add_shortcode('tooltip', 'bas_add_tooltips');
 	add_shortcode("events", "bas_add_events");
 	add_shortcode("faqs", "bas_add_faqs");
+	add_shortcode("slider", "bas_add_sliders");
 }
 add_action('init', 'register_shortcodes');
 

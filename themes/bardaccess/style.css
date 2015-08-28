@@ -60,6 +60,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 			margin-right:10px;
 		}
 
+		.header-login .user-avatar img {
+			margin-top: -2px;
+		}
+
 		.header-login .user-name {
 			font-family: 'Source Sans Pro', sans-serif;
 			color:#fff;
@@ -67,6 +71,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 			font-size: 0.79rem;
 			text-transform: uppercase;
 			float:left;
+		}
+
+		.header-login .user-name a {
+			color:#fff;
 		}
 
 		.header-login .fa {
@@ -93,11 +101,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 		vertical-align: inherit;
 	}
 
+	.top-bar-section ul li {
+		background: #fff;
+	}
+
 	.top-bar-section ul li > a {
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight:700;
 		font-size: 1.05rem;
 		text-transform: uppercase;
+		margin-left: 20px;
+	}
+
+	.top-bar-section ul li:hover:not(.has-form) > a {
+		background:#fff;
+		color:rgb(00,150,169);
 	}
 
 	.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
@@ -127,6 +145,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 		border-top:3px solid rgb(00,150,169);
 		color:#777;
 	}
+
+	.top-bar-section ul li:last-child a {
+		padding-right:0px !important;
+	}
+
 
 /* 
  * Homepage
