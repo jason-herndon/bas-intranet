@@ -19,8 +19,21 @@
 			  </div>
 			</div>
 		</footer>
-
 	<?php wp_footer(); // js scripts are inserted using this function ?>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/includes/js/vendor/jquery.js'; ?>"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/includes/js/vendor/owl.carousel.min.js'; ?>"></script>
+	<script type="text/javascript">
+			    $(document).ready(function() {
+			     
+			      $("#slider-homepage").owlCarousel(
+			      	      navigation : true,
+					      slideSpeed : 300,
+					      paginationSpeed : 400,
+					      singleItem : true
+
+					);
+			     
+			    });</script>
 
   </body>
 </html>

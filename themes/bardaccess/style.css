@@ -179,15 +179,18 @@ border-bottom: 3px solid #333;
     margin-top: -13px;
 }
 
-
 .homepage-slider {
 	margin-top: 0px;
 	margin-bottom: 0.4375rem;
 }
 
 	.homepage-slider img {
-		margin-top:-70px;
+		margin-top: -70px;
 	}
+
+.owl-carousel {
+	position: initial;
+}
 
 .featured-boxes {
 	padding-left: 0.9375rem;

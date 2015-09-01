@@ -6,10 +6,9 @@
  */
 
 	// Register Custom Functions and Helpers
-	//require_once('bas/ThemeSupportController.php');
 	require_once('bas/FrameworkIntegration.php');
 	require_once('bas/MetaBoxIntegration.php');
-	require_once('bas/HooksController.php'); // is this necessary?
+	require_once('bas/HooksController.php');
 	require_once('bas/HelperFunctions.php');
 	require_once('bas/EnqueueController.php');
 

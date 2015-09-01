@@ -18,6 +18,7 @@
  * Tooltips
  * Event
  * FAQ
+ * Slider
  * (Filter for adding shortcodes in the_content loops)
 /*--------------------------------------*/
 
@@ -617,47 +618,137 @@ if ( !function_exists('bas_add_faqs') ) {
 	}
 }
 
+
+
 /**
  * Sliders
  */
 if ( !function_exists('bas_add_sliders') ) {
 	function bas_add_sliders($atts, $content = null) {
-		// Get the attributes
+		// Get the attributes - See http://www.owlgraphic.com/owlcarousel/index.html for more options for OWL JS and Wordpress.org for more on the WP Query
 	    extract(shortcode_atts(array(
-		    'navigation' => '', // True or False to Show next and prev buttons
+	    	// Core Features
+		    'items' => '', // Number of Items
+		    'itemsCustom' => '', // True or False
+		    'itemsDesktop' => '',
+		    'itemsDesktopSmall' => '',
+		    'itemsTabletSmall' => '',
+		    'itemsMobile' => '',
+		    'singleItem' => '', // True or False to show one item
+		    'itemsScaleUp' => '',
+
+		    // Basic Speeds
 		    'slideSpeed' => '', // Slide Speed in miliseconds (eg. 300)
 		    'paginationSpeed' => '', // Speed at which pages change (eg. 400)
-		    'singleItem' => '', // True or False to show one item
-			      // "singleItem:true" is a shortcut for:
-			      // items : 1, 
-			      // itemsDesktop : false,
-			      // itemsDesktopSmall : false,
-			      // itemsTablet: false,
-			      // itemsMobile : false
-		    // See http://www.owlgraphic.com/owlcarousel/index.html for more options
+		    'rewindSpeed' => '', // (eg. 1000)
+
+		    // Autoplay
+		    'autoPlay' => '', // True or False to Autoplay
+		    'stopOnHover' => '', // True or False to stop slider on mouse hover
+
+		    // Navigation
+		    'navigation' => '', // True or False to show/hide the navigation
+		    'navigationText' => '', // Array of values to use for nav (eg. ["next", "prev"])
+		    'rewindNav' => '',
+		    'scrollPerPage' => '',
+
+		    // Pagination
+		    'pagination' => '', // True or False
+		    'paginationNumbers' => '', // True or False
+
+		    // Responsive
+		    'responsive' => '', // True or False to make slider repsonsive
+		    'responsiveRefreshRate' => '', // (eg. 200)
+		    'responsiveBaseWidth' => '', // (eg. window)
+
+		    // CSS Styles
+		    'baseClass' => '', // Class to use for the base (eg. owl-carousel)
+		    'theme' => '', // (eg. owl-theme)
+
+		    // Lazy load
+		    'lazyLoad' => '', // True or False
+		    'lazyFollow' => '', // True or False
+		    'lazyEffeect' => '', // (eg: fade)
+
+		    // Auto Height
+		    'autoHeight' => '', // True or False to resize slider to each image height
+
+		    // JSON
+		    'jsonPath' => '', // True or False
+		    'jsonSuccess' => '', // True or False
+
+		    // Mouse Events
+		    'dragBeforeAnimFinish' => '', // True or False
+		    'mouseDrag' => '', // True or False
+		    'touchDrag' => '', // True or False
+
+		    // Transitions
+		    'transitionStyle' => '', // True or False
+
+		    // Other
+		    'addClassActive' => '', // True or False
+
+		    // Callbacks
+		    'beforeUpdate' => '', // True or False
+		    'afterUpdate' => '', // True or False
+		    'beforeInit' => '', // True or False
+		    'afterInit' => '', // True or False
+		    'beforeMove' => '', // True or False
+		    'afterMove' => '', // True or False
+		    'afterAction' => '', // True or False
+		    'startDragging' => '', // True or False
+		    'afterLazyLoad' => '', // True or False
+
+		    // WP Query
+		    'category' => '', // Name of category
+		    'id' => '', // ID to give to the slider
+		    'only' => '', // IDs of posts to include
+		    'exclude' => '', // IDs of posts to exclude
 	    ), $atts));
+
+		if ((isset($atts['exclude'])) && ($atts['exclude'] != '')) { $exclude = explode(',', $atts['exclude']); } else { $only = ''; }
+		if ((isset($atts['only'])) && ($atts['only'] != '')) { $only = explode(',', $atts['only']); } else { $only = ''; }
+		if ((isset($atts['category'])) && ($atts['category'] != '')) { $category = explode(',', $atts['category']); } else { $category = ''; }
 
 	    // Do the query
 	    $slider_args = array( 
 			'post_type'           => 'slide',
 			'posts_per_page'      => -1,
 			'ignore_sticky_posts' => 1,
+			'post__in'		  	  => $only,
+			'post__not_in'		  => $exclude,
+			'category__in'		  => $category,
 		);
 
 		global $slider_query;
 	    $slider_query = new WP_Query( $slider_args );
 	       
 	    if ( $slider_query->have_posts() ) :
-			?><div id="owl-homepage-slider" class="owl-carousel owl-theme">
-	            while ( $faq_query->have_posts() ) : $faq_query->the_post(); 
+			?><div id="<?php echo $atts['id']; ?>" class="owl-carousel owl-theme"><?php
+	            while ( $slider_query->have_posts() ) : $slider_query->the_post();
 					?>
-					<div class="item"><img src="assets/fullimage1.jpg" alt="The Last of us"></div>
-					<div class="item"><img src="assets/fullimage2.jpg" alt="GTA V"></div>
-					<div class="item"><img src="assets/fullimage3.jpg" alt="Mirror Edge"></div>
+					<div class="item">
+						<div class="item-caption">
+							<?php the_title(); ?>
+							<?php the_content(); ?>
+						</div>					                		
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail('full');
+						} ?>
+					</div>
 					<?php
 	            endwhile; // end of the loop 
-			?></div><?php // close the block-grid
-	            
+			?></div>
+			<style>
+			    #slider-homepage .item img{
+			        display: block;
+			        width: 100%;
+			        height: auto;
+			    }
+			</style>
+			<?php // close the block-grid
+    		// ADD THE JAVASCRIPT
+			bas_create_owl_slider_javascript($atts);	            
 	    // if no posts are found
 		else : 
 	    endif; // end have_posts() check
@@ -665,6 +756,7 @@ if ( !function_exists('bas_add_sliders') ) {
 
 	}
 }
+
 
 function register_shortcodes() {
 	add_shortcode('alert', 'bas_add_alerts');

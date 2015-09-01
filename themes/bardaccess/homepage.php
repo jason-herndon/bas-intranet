@@ -7,7 +7,6 @@
 
 <?php get_header(); ?>
 
-
    <!-- Include Homepage Slider Area -->
     <?php get_template_part('includes/partials/slider', 'home') ?>        
  

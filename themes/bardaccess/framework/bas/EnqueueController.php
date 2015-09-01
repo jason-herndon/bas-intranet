@@ -58,11 +58,15 @@
 		function theme_scripts(){
 
 			// Foundation JS
-			wp_register_script( 'foundation-js', get_template_directory_uri() . '/includes/js/foundation.min.js', array('jquery'), '1.2' );
+			wp_register_script( 'jquery', get_template_directory_uri() . '/includes/js/vendor/jquery.js', array(), '', true );
+			wp_enqueue_script('jquery');
+
+			// Foundation JS
+			wp_register_script( 'foundation-js', get_template_directory_uri() . '/includes/js/foundation.min.js', array('jquery'), '', true );
 			wp_enqueue_script('foundation-js');
 			
 			// OWL Slider
-			wp_register_script( 'owl-js', get_template_directory_uri() . '/includes/js/vendor/owl.carousel.min.js', array(), '1.0' );
+			wp_register_script( 'owl-js', get_template_directory_uri() . '/includes/js/vendor/owl.carousel.min.js', array('jquery'), '', true );
 			wp_enqueue_script( 'owl-js' );
 
 		}
