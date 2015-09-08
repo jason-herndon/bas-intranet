@@ -93,6 +93,60 @@ if ( !function_exists('bas_register_post_types') ) {
 
 
 
+
+		/**
+		 * Register FEATURED CONTENT post type
+		 */
+		if ( !function_exists('bas_featured_content_register') ) {
+			function bas_featured_content_register() {
+					
+				$labels = array( 
+					'name'               => __('Featured Content', 'bas'),
+					'singular_name'      => __('Feature', 'bas'),
+					'add_new'            => __('Add Featured Content Slide', 'bas'),
+					'add_new_item'       => __('Add Featured Content Slide', 'bas'),
+					'edit_item'          => __('Edit Featured Content Slide', 'bas'),
+					'new_item'           => __('New Featured Content Slide', 'bas'),
+					'all_items'          => __('All Featured Content Slides', 'bas'),
+					'view_item'          => __('View Featured Content Slide', 'bas'),
+					'search_items'       => __('Search Featured Content Slides', 'bas'),
+					'not_found'          => __('Nothing found', 'bas'),
+					'not_found_in_trash' => __('Nothing found in Trash', 'bas'),
+					'parent_item_colon'  => '',
+					'menu_name'          => __('Featured Content', 'bas')
+				 );
+				 
+				$args = array( 
+					'labels'             => $labels,
+					'public'             => true,
+					'publicly_queryable' => true,
+					'show_ui'            => true,
+					'show_in_menu'       => true,
+					'query_var'          => true,
+					'menu_icon'          => false,
+					'rewrite'	         => true,
+					'capability_type'    => 'post',
+					'taxonomies'         => false,
+					'has_archive'        => true,
+					'hierarchical'       => false,
+					'menu_position'      => 7,
+						'rewrite'    => array(  
+						'slug'       => __('featured-post', 'bas'),
+						'with_front' => false,  
+						'feed'       => true,  
+						'pages'      => true ),
+					'supports'           => array('title','editor', 'thumbnail', 'excerpt'),
+				  	'exclude_from_search' => true,
+				  	'show_in_nav_menus'  => false,
+				  ); 
+			 
+				register_post_type('featured' , $args );
+			} // end function
+			add_action('init', 'bas_featured_content_register');
+		} // end featured content post type
+
+
+
 		/**
 		 * Register FAQ post type
 		 */

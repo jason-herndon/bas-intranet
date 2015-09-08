@@ -31,9 +31,56 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
  * Header
  */
 
+.login-bar {
+	margin-bottom:0.5375rem;
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
+}
+	.header-login {
+		background:rgb(00,150,169);
+		padding-left: 0.5375rem;
+		padding-right: 0.5375rem;
+		line-height: 2.125rem;
+		padding-bottom: 0.2375rem;
+	}
+
+	.header-login .user-avatar {
+		float:left;
+		margin-right:10px;
+	}
+
+	.header-login .user-avatar img {
+		margin-top: -2px;
+	}
+
+	.header-login .user-name {
+		font-family: 'Source Sans Pro', sans-serif;
+		color:#fff;
+		font-weight: 600;
+		font-size: 0.79rem;
+		text-transform: uppercase;
+		float:left;
+	}
+
+	.header-login .user-name a {
+		color:#fff;
+	}
+
+	.header-login .fa {
+		color:#fff;
+		padding-top: 10px;
+	}
+
+	.header-login .label.alert {
+		background:#fff;
+		color:rgb(00,150,160);
+	}
+
 .top-bar {
 	background:#fff;
 	height: auto;
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
 }
 
 .top-bar .row {
@@ -42,59 +89,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 	height: 40px;
 }
 
-	.login-bar {
-		margin-bottom:0.5375rem;
-		padding-left: 0.9375rem;
-		padding-right: 0.9375rem;
-	}
-		.header-login {
-			background:rgb(00,150,169);
-			padding-left: 0.5375rem;
-			padding-right: 0.5375rem;
-			line-height: 2.125rem;
-			padding-bottom: 0.2375rem;
-		}
-
-		.header-login .user-avatar {
-			float:left;
-			margin-right:10px;
-		}
-
-		.header-login .user-avatar img {
-			margin-top: -2px;
-		}
-
-		.header-login .user-name {
-			font-family: 'Source Sans Pro', sans-serif;
-			color:#fff;
-			font-weight: 600;
-			font-size: 0.79rem;
-			text-transform: uppercase;
-			float:left;
-		}
-
-		.header-login .user-name a {
-			color:#fff;
-		}
-
-		.header-login .fa {
-			color:#fff;
-			padding-top: 10px;
-		}
-
-		.header-login .label.alert {
-			background:#fff;
-			color:rgb(00,150,160);
-		}
-
-	.top-bar .name h1 a{
+	ul.title-area .name h1 a{
 		color:#333;
 	}
 
-	.top-bar .name h1 a{
+	ul.title-area .name h1 a{
 		font-family: 'Source Sans Pro', sans-serif;
 		color:#444;
-		padding-left: 50px;
 	}
 
 	.site-logo {
@@ -177,37 +178,43 @@ border-bottom: 3px solid #333;
 	height: 70px;
 	position: relative;
     margin-top: -13px;
+    z-index: 1;
 }
-
-.homepage-slider {
-	margin-top: 0px;
-	margin-bottom: 0.4375rem;
-}
-
-	.homepage-slider img {
-		margin-top: -70px;
-	}
 
 .owl-carousel {
 	position: initial;
 }
 
-.featured-boxes {
-	padding-left: 0.9375rem;
-	padding-right: 0.9375rem;
+.homepage-slider {
+	margin-top: 0px;
+	margin-bottom: 3px;
 }
 
-	.featured-box {
-		padding-right:0.4375rem;
-		padding-left:0px;
+	.homepage-slider .owl-wrapper-outer {
+		margin-top: -70px;
 	}
 
-	.featured-box:last-child{
-		padding-left: 0px;
-		padding-right: 0px;
-		max-height: 230px;
-		overflow: hidden;
+#featured-content .owl-wrapper-outer {
+	margin-left:-1px;
+}
+
+	.featured-boxes {
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
 	}
+
+	#featured-content .item{
+		margin: 3px;
+	}
+	#featured-content .item img{
+		display: block;
+		width: 100%;
+		max-height: 270px;
+		overflow: hidden;
+		opacity:.8;
+	}
+
+
 
 /* 
  * Footer

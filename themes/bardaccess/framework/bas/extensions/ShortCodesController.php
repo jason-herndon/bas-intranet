@@ -627,88 +627,17 @@ if ( !function_exists('bas_add_sliders') ) {
 	function bas_add_sliders($atts, $content = null) {
 		// Get the attributes - See http://www.owlgraphic.com/owlcarousel/index.html for more options for OWL JS and Wordpress.org for more on the WP Query
 	    extract(shortcode_atts(array(
-	    	// Core Features
-		    'items' => '', // Number of Items
-		    'itemsCustom' => '', // True or False
-		    'itemsDesktop' => '',
-		    'itemsDesktopSmall' => '',
-		    'itemsTabletSmall' => '',
-		    'itemsMobile' => '',
-		    'singleItem' => '', // True or False to show one item
-		    'itemsScaleUp' => '',
-
-		    // Basic Speeds
-		    'slideSpeed' => '', // Slide Speed in miliseconds (eg. 300)
-		    'paginationSpeed' => '', // Speed at which pages change (eg. 400)
-		    'rewindSpeed' => '', // (eg. 1000)
-
-		    // Autoplay
-		    'autoPlay' => '', // True or False to Autoplay
-		    'stopOnHover' => '', // True or False to stop slider on mouse hover
-
-		    // Navigation
-		    'navigation' => '', // True or False to show/hide the navigation
-		    'navigationText' => '', // Array of values to use for nav (eg. ["next", "prev"])
-		    'rewindNav' => '',
-		    'scrollPerPage' => '',
-
-		    // Pagination
-		    'pagination' => '', // True or False
-		    'paginationNumbers' => '', // True or False
-
-		    // Responsive
-		    'responsive' => '', // True or False to make slider repsonsive
-		    'responsiveRefreshRate' => '', // (eg. 200)
-		    'responsiveBaseWidth' => '', // (eg. window)
-
-		    // CSS Styles
-		    'baseClass' => '', // Class to use for the base (eg. owl-carousel)
-		    'theme' => '', // (eg. owl-theme)
-
-		    // Lazy load
-		    'lazyLoad' => '', // True or False
-		    'lazyFollow' => '', // True or False
-		    'lazyEffeect' => '', // (eg: fade)
-
-		    // Auto Height
-		    'autoHeight' => '', // True or False to resize slider to each image height
-
-		    // JSON
-		    'jsonPath' => '', // True or False
-		    'jsonSuccess' => '', // True or False
-
-		    // Mouse Events
-		    'dragBeforeAnimFinish' => '', // True or False
-		    'mouseDrag' => '', // True or False
-		    'touchDrag' => '', // True or False
-
-		    // Transitions
-		    'transitionStyle' => '', // True or False
-
-		    // Other
-		    'addClassActive' => '', // True or False
-
-		    // Callbacks
-		    'beforeUpdate' => '', // True or False
-		    'afterUpdate' => '', // True or False
-		    'beforeInit' => '', // True or False
-		    'afterInit' => '', // True or False
-		    'beforeMove' => '', // True or False
-		    'afterMove' => '', // True or False
-		    'afterAction' => '', // True or False
-		    'startDragging' => '', // True or False
-		    'afterLazyLoad' => '', // True or False
-
 		    // WP Query
 		    'category' => '', // Name of category
 		    'id' => '', // ID to give to the slider
 		    'only' => '', // IDs of posts to include
-		    'exclude' => '', // IDs of posts to exclude
+		    'class' => '',
 	    ), $atts));
 
-		if ((isset($atts['exclude'])) && ($atts['exclude'] != '')) { $exclude = explode(',', $atts['exclude']); } else { $only = ''; }
+		if ((isset($atts['id'])) && ($atts['id'] != '')) { $id = $atts['id']; } else { $id = 'owl-demo'; }
 		if ((isset($atts['only'])) && ($atts['only'] != '')) { $only = explode(',', $atts['only']); } else { $only = ''; }
 		if ((isset($atts['category'])) && ($atts['category'] != '')) { $category = explode(',', $atts['category']); } else { $category = ''; }
+		if ((isset($atts['class'])) && ($atts['class'] != '')) { $class = $atts['class']; } else { $class = 'owl-theme'; }
 
 	    // Do the query
 	    $slider_args = array( 
@@ -716,7 +645,6 @@ if ( !function_exists('bas_add_sliders') ) {
 			'posts_per_page'      => -1,
 			'ignore_sticky_posts' => 1,
 			'post__in'		  	  => $only,
-			'post__not_in'		  => $exclude,
 			'category__in'		  => $category,
 		);
 
@@ -724,12 +652,11 @@ if ( !function_exists('bas_add_sliders') ) {
 	    $slider_query = new WP_Query( $slider_args );
 	       
 	    if ( $slider_query->have_posts() ) :
-			?><div id="<?php echo $atts['id']; ?>" class="owl-carousel owl-theme"><?php
+			?><div id="<?php echo $id; ?>" class="owl-carousel <?php echo $class; ?>"><?php
 	            while ( $slider_query->have_posts() ) : $slider_query->the_post();
 					?>
 					<div class="item">
 						<div class="item-caption">
-							<?php the_title(); ?>
 							<?php the_content(); ?>
 						</div>					                		
 						<?php if ( has_post_thumbnail() ) {
@@ -738,17 +665,8 @@ if ( !function_exists('bas_add_sliders') ) {
 					</div>
 					<?php
 	            endwhile; // end of the loop 
-			?></div>
-			<style>
-			    #slider-homepage .item img{
-			        display: block;
-			        width: 100%;
-			        height: auto;
-			    }
-			</style>
-			<?php // close the block-grid
-    		// ADD THE JAVASCRIPT
-			bas_create_owl_slider_javascript($atts);	            
+			?></div><?php // close the block-grid
+
 	    // if no posts are found
 		else : 
 	    endif; // end have_posts() check
@@ -756,6 +674,61 @@ if ( !function_exists('bas_add_sliders') ) {
 
 	}
 }
+
+
+
+
+/**
+ * Featured Content
+ */
+if ( !function_exists('bas_add_featured_content') ) {
+	function bas_add_featured_content($atts, $content = null) {
+		// Get the attributes - See http://www.owlgraphic.com/owlcarousel/index.html for more options for OWL JS and Wordpress.org for more on the WP Query
+	    extract(shortcode_atts(array(
+		    // WP Query
+		    'category' => '', // Name of category
+		    'id' => '', // ID to give to the slider
+		    'only' => '', // IDs of posts to include
+		    'class' => '',
+	    ), $atts));
+
+		if ((isset($atts['id'])) && ($atts['id'] != '')) { $id = $atts['id']; } else { $id = 'owl-demo'; }
+		if ((isset($atts['only'])) && ($atts['only'] != '')) { $only = explode(',', $atts['only']); } else { $only = ''; }
+		if ((isset($atts['category'])) && ($atts['category'] != '')) { $category = explode(',', $atts['category']); } else { $category = ''; }
+		if ((isset($atts['class'])) && ($atts['class'] != '')) { $class = $atts['class']; } else { $class = 'owl-theme'; }
+
+	    // Do the query
+	    $feat_slider_args = array( 
+			'post_type'           => 'featured',
+			'posts_per_page'      => -1,
+			'ignore_sticky_posts' => 1,
+			'post__in'		  	  => $only,
+			'category__in'		  => $category,
+		);
+
+		global $feat_slider_query;
+	    $feat_slider_query = new WP_Query( $feat_slider_args );
+	    if ( $feat_slider_query->have_posts() ) :
+			?><div id="<?php echo $id; ?>" class="<?php echo $class; ?>"><?php
+	            while ( $feat_slider_query->have_posts() ) : $feat_slider_query->the_post();
+					?>
+					<div class="item">
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail('full');
+						} ?>
+					</div>
+					<?php
+	            endwhile; // end of the loop 
+			?></div><?php // close the block-grid
+
+	    // if no posts are found
+		else : 
+	    endif; // end have_posts() check
+	    wp_reset_query();
+
+	}
+}
+
 
 
 function register_shortcodes() {
@@ -776,6 +749,7 @@ function register_shortcodes() {
 	add_shortcode("events", "bas_add_events");
 	add_shortcode("faqs", "bas_add_faqs");
 	add_shortcode("slider", "bas_add_sliders");
+	add_shortcode("featured", "bas_add_featured_content");
 }
 add_action('init', 'register_shortcodes');
 

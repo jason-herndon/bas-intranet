@@ -79,56 +79,43 @@
 
 	<div class="header-full">
 
+		<!-- Login Bar -->
+		<div class="login-bar row">
+			<div class="header-login large-<?php echo $loginClass;?> columns right">
+				<div class="user-avatar">
+					<?php echo $avatar; ?>
+				</div>
+				<div class="user-name">
+					<a href="<?php echo $loginLink; ?>">
+						<?php echo $current_user_displayname; ?>
+					</a>
+				</div>
+				<div class="user-notifications right">
+					<?php if ($notification_count > 0) { ?>
+						<i class="fa fa-bell"></i>
+						<span class="round alert label"><?php echo notification_count; ?></span>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+
 		<!-- Begin Navbar -->
-		<nav class="top-bar" data-topbar>
+		<nav class="top-bar row" data-topbar>
 
-			<!-- Login Bar -->
-			<div class="login-bar row">
-				<div class="header-login large-<?php echo $loginClass;?> columns right">
-					<div class="user-avatar">
-						<?php echo $avatar; ?>
-					</div>
-					<div class="user-name">
-						<a href="<?php echo $loginLink; ?>"><?php echo $current_user_displayname; ?></a>
-					</div>
-					<div class="user-notifications right">
-						</i> <?php if ($notification_count > 0) { ?><i class="fa fa-bell"><span class="round alert label"><?php echo notification_count; ?></span><?php } ?>
-					</div>
-				</div>
+			<ul class="title-area">
+				<li class="name">
+					<h1>
+						<a href="<?php echo get_bloginfo('url'); ?>">
+							<?php echo bas_get_logo(); ?>
+						</a>
+					</h1>
+				</li>
+			</ul>
+		
+			<div class="top-bar-section">
+				<?php echo bas_get_menu(); ?>
 			</div>
-
-			<!-- Top Nagivation Bar -->
-			<div class="top-nav-bar row">
-				<div class="large-12 columns">
-					<ul class="title-area">
-					  <li class="name">
-					    <h1>
-					      <a href="<?php echo get_bloginfo('url'); ?>">
-					        <?php echo bas_get_logo(); ?>
-					      </a>
-					    </h1>
-					  </li>
-					  <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-					</ul>
-
-					<section class="top-bar-section">
-						<?php echo bas_get_menu(); ?>
-					</section>
-
-					<div class="mobile_nav">
-						<div id="menu_button" class="show-for-small-only">
-							<button class="secondary button" id="mobileMenuButton" href="#mobile-menu">
-								<span class="mobile-menu-icon"></span>
-								<span class="mobile-menu-icon"></span>
-								<span class="mobile-menu-icon"></span>
-							</button>
-						</div>
-					</div>
-
-					<!-- FIX: ADD MOBILE MENU -->
-
-				</div>
-			</div>
+			
 		</nav>
 		<!-- End Navbar -->
 

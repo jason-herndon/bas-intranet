@@ -9,20 +9,6 @@
      *
      * @return var
      */
-	if ( !function_exists('bas_create_owl_slider_javascript') ) {
-		function bas_create_owl_slider_javascript($args) 
-		{
-		  	if ( wp_script_is( 'owl-js', 'done' ) ) {
-		  	}
-		}
-		add_action( 'wp_footer', 'bas_create_owl_slider_javascript', 111);
-	}
-
-    /**
-     * Gets the post footer for each blog post
-     *
-     * @return var
-     */
 	if ( !function_exists('bas_get_post_footer') ) {
 		function bas_get_post_footer() 
 		{

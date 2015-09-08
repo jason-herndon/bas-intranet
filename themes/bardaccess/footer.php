@@ -20,20 +20,30 @@
 			</div>
 		</footer>
 	<?php wp_footer(); // js scripts are inserted using this function ?>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/includes/js/vendor/jquery.js'; ?>"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/includes/js/vendor/owl.carousel.min.js'; ?>"></script>
 	<script type="text/javascript">
-			    $(document).ready(function() {
-			     
-			      $("#slider-homepage").owlCarousel(
-			      	      navigation : true,
-					      slideSpeed : 300,
-					      paginationSpeed : 400,
-					      singleItem : true
+	  jQuery(document).foundation();
+	   	jQuery(document).ready(function() {
+			jQuery('#slider-homepage').owlCarousel({
+			    loop:true,
+			    margin:10,
+			    singleItem:true,
+			    navigation:false,
+			    pagination:false,
+			    autoPlay: true,
+			    rewindSpeed: 1,
+			    slideSpeed: 200,
+			    transitionStyle: 'fade',
+			});
 
-					);
-			     
-			    });</script>
-
+			jQuery('#featured-content').owlCarousel({
+			    autoPlay: 8000, //Set AutoPlay to 3 seconds
+				navigation:false,
+				pagination:false,
+			    items : 4,
+			    itemsDesktop : [1199,3],
+			    itemsDesktopSmall : [979,3]
+			});
+		});
+	</script>	
   </body>
 </html>
