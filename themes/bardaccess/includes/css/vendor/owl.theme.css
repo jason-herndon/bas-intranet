@@ -4,8 +4,9 @@
 */
 
 .owl-theme .owl-controls{
-	margin-top: 10px;
-	text-align: center;
+	text-align: right;
+	margin-top: -27px;
+	padding-right: 15px;
 }
 
 /* Styling Next and Prev buttons */
@@ -28,8 +29,8 @@
 /* Clickable class fix problem with hover on touch devices */
 /* Use it for non-touch hover action */
 .owl-theme .owl-controls.clickable .owl-buttons div:hover{
-	filter: Alpha(Opacity=100);/*IE7 fix*/
-	opacity: 1;
+	filter: Alpha(Opacity=90);/*IE7 fix*/
+	opacity: .9;
 	text-decoration: none;
 }
 
@@ -42,21 +43,19 @@
 }
 .owl-theme .owl-controls .owl-page span{
 	display: block;
-	width: 12px;
-	height: 12px;
-	margin: 5px 7px;
-	filter: Alpha(Opacity=50);/*IE7 fix*/
+	width: 20px;
+	height: 5px;
+	margin: 6px 1px;
 	opacity: 0.5;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
-	background: #869791;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	background: #FFF none repeat scroll 0% 0%;
+	border-radius: 0px;
 }
 
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{
-	filter: Alpha(Opacity=100);/*IE7 fix*/
-	opacity: 1;
+	filter: Alpha(Opacity=9);/*IE7 fix*/
+	opacity: 0.9;
 }
 
 /* If PaginationNumbers is true */

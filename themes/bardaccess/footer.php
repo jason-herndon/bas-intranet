@@ -28,7 +28,7 @@
 			    margin:10,
 			    singleItem:true,
 			    navigation:false,
-			    pagination:false,
+			   // pagination:false,
 			    autoPlay: true,
 			    rewindSpeed: 1,
 			    slideSpeed: 200,

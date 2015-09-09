@@ -713,9 +713,15 @@ if ( !function_exists('bas_add_featured_content') ) {
 	            while ( $feat_slider_query->have_posts() ) : $feat_slider_query->the_post();
 					?>
 					<div class="item">
-						<?php if ( has_post_thumbnail() ) {
-							the_post_thumbnail('full');
-						} ?>
+						<div class="featured-content-img">
+							<?php if ( has_post_thumbnail() ) {
+								the_post_thumbnail('full');
+							} ?>
+						</div>
+						<div class="featured-content-caption">
+							<h3><?php the_title(); ?></h3>
+							<h4><?php the_content(); ?></h4>
+						</div>
 					</div>
 					<?php
 	            endwhile; // end of the loop 
