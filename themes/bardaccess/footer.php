@@ -37,7 +37,8 @@
 
 			jQuery('#featured-content').owlCarousel({
 			    autoPlay: 8000, //Set AutoPlay to 3 seconds
-				navigation:false,
+				navigation:true,
+				navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
 				pagination:false,
 			    items : 4,
 			    itemsDesktop : [1199,3],

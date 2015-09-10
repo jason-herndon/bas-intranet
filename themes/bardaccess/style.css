@@ -197,25 +197,48 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 		opacity:.8;
 	}
 
+		.featured-content-caption {
+			display: none;
+		}
 
+ .featured-boxes {
+ 	margin-bottom: 1.8125rem;
+ 	min-height: 156px;
+ }
+
+	#featured-content .owl-controls {
+		padding:0px;
+		text-align: inherit;
+		margin-top:-100px;
+	}
+
+		#featured-content .owl-controls .owl-buttons div{
+			color: #333;
+			display: inline-block;
+			margin: 5px 0px;
+			padding: 3px 10px;
+			font-size: 14px;
+			border-radius: 0px;
+			background: #FFF none repeat scroll 0% 0%;
+			opacity: .9;
+		}
+
+		#featured-content .owl-controls .owl-prev {
+			float: left;
+			margin-left: 10px;
+		}
+
+		#featured-content .owl-controls .owl-next {
+			float: right;
+			margin-right: 10px;
+		}
 
 /* 
  * Footer
  */
 
 
-	/*
-	 * Featured Areas
-	 */ 
 
-		 .featured-boxes {
-		 	margin-bottom: 1.8125rem;
-		 }
-
-		.featured-content-caption {
-			margin-top: -125px;
-			padding: 5%;
-		}
 
 /* 
  * Custom Pages

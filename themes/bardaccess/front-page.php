@@ -1,11 +1,26 @@
 <?php
 /**
- * The default template file
+ * The default homepage file
  * @package BAS
  */
 ?>
 
 <?php get_header(); ?>
+
+    <?php
+        if ( is_front_page() )
+        {
+
+            // Include Homepage Slider Area
+            get_template_part('includes/partials/slider', 'home');      
+
+            // Include Homepage Feature Boxes Area
+            get_template_part('includes/partials/feature-boxes', 'home');      
+
+        // end if is front page
+        }
+
+    ?>
 
     <!-- Homepage Content Area -->
     <div class="row"> 

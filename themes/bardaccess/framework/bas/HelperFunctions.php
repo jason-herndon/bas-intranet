@@ -12,6 +12,7 @@
 	if ( !function_exists('bas_get_post_footer') ) {
 		function bas_get_post_footer() 
 		{
+			echo 'Post Footer';
 		}
 	}
 
