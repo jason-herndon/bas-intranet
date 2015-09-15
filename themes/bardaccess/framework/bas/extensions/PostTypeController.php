@@ -147,6 +147,61 @@ if ( !function_exists('bas_register_post_types') ) {
 
 
 
+
+		/**
+		 * Register SIDEBAR IMAGES post type
+		 */
+		if ( !function_exists('bas_sidebar_images_register') ) {
+			function bas_sidebar_images_register() {
+					
+				$labels = array( 
+					'name'               => __('Sidebar Ads', 'bas'),
+					'singular_name'      => __('Feature', 'bas'),
+					'add_new'            => __('Add Sidebar Ad', 'bas'),
+					'add_new_item'       => __('Add Sidebar Ad', 'bas'),
+					'edit_item'          => __('Edit Sidebar Ad', 'bas'),
+					'new_item'           => __('New Sidebar Ad', 'bas'),
+					'all_items'          => __('All Sidebar Ads', 'bas'),
+					'view_item'          => __('View Sidebar Ad', 'bas'),
+					'search_items'       => __('Search Sidebar Ads', 'bas'),
+					'not_found'          => __('Nothing found', 'bas'),
+					'not_found_in_trash' => __('Nothing found in Trash', 'bas'),
+					'parent_item_colon'  => '',
+					'menu_name'          => __('Sidebar Ads', 'bas')
+				);
+				 
+				$args = array( 
+					'labels'             => $labels,
+					'public'             => true,
+					'publicly_queryable' => true,
+					'show_ui'            => true,
+					'show_in_menu'       => true,
+					'query_var'          => true,
+					'menu_icon'          => false,
+					'rewrite'	         => true,
+					'capability_type'    => 'post',
+					'taxonomies'         => false,
+					'has_archive'        => true,
+					'hierarchical'       => false,
+					'menu_position'      => 7,
+						'rewrite'    => array(  
+						'slug'       => __('sidebar-image', 'bas'),
+						'with_front' => false,  
+						'feed'       => true,  
+						'pages'      => true ),
+					'supports'           => array('title','editor', 'thumbnail', 'excerpt'),
+				  	'exclude_from_search' => true,
+				  	'show_in_nav_menus'  => false,
+				); 
+			 
+				register_post_type('sidebar-images' , $args );
+			} // end function
+			add_action('init', 'bas_sidebar_images_register');
+		} // end sidebar-images post type
+
+
+
+
 		/**
 		 * Register FAQ post type
 		 */

@@ -6,8 +6,8 @@
 ?>
 <div class="homepage-slider row">
 	<div class="large-12 columns">
-		<div class="slider-overlay">
-		</div>
+		<div class="slider-overlay"></div>
+		<div class="slider-overlay-bottom"></div>
         <?php echo do_shortcode('[slider category="" id="slider-homepage" navigation="false" responsive="true" class="homepage-slider"][/slider]'); ?>
 	</div>
 </div>

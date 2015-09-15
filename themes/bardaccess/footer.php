@@ -1,19 +1,16 @@
     	<!-- FOOTER -->
-		<footer class="row">
-			<div class="large-12 columns"><hr/>
+		<footer class="footer row">
+			<div class="<?php bas_columns(12); ?>"><hr/>
 			  <div class="row">
 
-			    <div class="large-6 columns">
-			        <p>© Copyright no one at all. Go to town.</p>
+			    <div class="<?php bas_columns(9); ?>">
+					<?php echo bas_get_footer_menu(); ?>
 			    </div>
 
-			    <div class="large-6 columns">
-			        <ul class="inline-list right">
-			          <li><a href="#">Link 1</a></li>
-			          <li><a href="#">Link 2</a></li>
-			          <li><a href="#">Link 3</a></li>
-			          <li><a href="#">Link 4</a></li>
-			        </ul>
+			    <div class="<?php bas_columns(3); ?>">
+			    	<div class="copyright right">
+				        <p>&copy; <?php echo date("Y"); ?> C. R. Bard, Inc. All rights reserved.</p>
+				    </div>
 			    </div>
 
 			  </div>
@@ -21,30 +18,11 @@
 		</footer>
 	<?php wp_footer(); // js scripts are inserted using this function ?>
 	<script type="text/javascript">
-	  jQuery(document).foundation();
-	   	jQuery(document).ready(function() {
-			jQuery('#slider-homepage').owlCarousel({
-			    loop:true,
-			    margin:10,
-			    singleItem:true,
-			    navigation:false,
-			   // pagination:false,
-			    autoPlay: true,
-			    rewindSpeed: 1,
-			    slideSpeed: 200,
-			    transitionStyle: 'fade',
-			});
-
-			jQuery('#featured-content').owlCarousel({
-			    autoPlay: 8000, //Set AutoPlay to 3 seconds
-				navigation:true,
-				navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-				pagination:false,
-			    items : 4,
-			    itemsDesktop : [1199,3],
-			    itemsDesktopSmall : [979,3]
-			});
-		});
+		<?php echo get('carbon_custom_js'); ?>
+	</script>	
+	<script type="text/javascript">
+		
+		
 	</script>	
   </body>
 </html>

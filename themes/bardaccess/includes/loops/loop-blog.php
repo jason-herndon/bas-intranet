@@ -20,7 +20,9 @@
                 }
 
             // end while loop
-            endwhile; ?>
+            endwhile; 
+            // reset post data
+            wp_reset_postdata(); ?>
         <?php else : ?>
             get_template_part('includes/partials/no-content'); 
         <?php endif; ?>

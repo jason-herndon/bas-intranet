@@ -25,6 +25,11 @@
 				    'type' => 'upload',
 				) );
 				$panel->createOption( array(
+				    'name' => 'Homepage Blog Header Image',
+				    'id' => 'homepage_blog_header_image',
+				    'type' => 'upload',
+				) );
+				$panel->createOption( array(
 				    'name' => 'Homepage Content',
 				    'id' => 'homepage_row_order',
 				    'type' => 'sortable',

@@ -19,24 +19,41 @@
 
         // end if is front page
         }
-
     ?>
 
     <!-- Homepage Content Area -->
     <div class="row"> 
 
+        <div class="homepage-content"></div>
+
         <!-- Homepage Blog -->
-        <div class="large-9 medium-9 small-12 columns">
+        <div class="homepage-blog <?php bas_columns(8); ?>">
+
+            <?php 
+                $homepageBlogImage = get('homepage_blog_header_image');
+                if (isset($homepageBlogImage) && ($homepageBlogImage != '')) 
+                {
+                    ?>
+                    <div class="homepage-blog-header">
+                        <img src="<?php echo wp_get_attachment_url($homepageBlogImage); ?>">
+                    </div>
+                    <?php
+                }
+            ?>
+
+            <h1>Other News</h1>
     
             <!-- Include Homepage Blog Area -->
             <?php get_template_part('includes/loops/loop', 'blog') ?>        
+
+            <div class="button other-news-btn"><a href="/blog">Other News</a></div>
     
         </div>
 
         <!-- Homepage Sideabar -->
-        <div class="large-3 medium-3 small-12 columns">
+        <div class="<?php bas_columns(4); ?>">
 
-            <?php get_sidebar('home'); ?>
+            <?php get_sidebar(); ?>
    
         </div>
 

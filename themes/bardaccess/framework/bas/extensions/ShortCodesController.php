@@ -158,6 +158,7 @@ if ( !function_exists('bas_add_flex_video') ) {
 		$output .= '</div>';
 			
 		return $output;
+	    wp_reset_query();
 	}
 }
 
@@ -201,7 +202,8 @@ if ( !function_exists('bas_add_custom_gallery') ) {
 			'columns'    => 4,
 			'size'       => 'thumbnail',
 			'include'    => '',
-			'exclude'    => ''
+			'exclude'    => '',
+			'link'		 => '',
 		 ), $attr ) );
 
 		$id = intval( $id );
@@ -245,13 +247,16 @@ if ( !function_exists('bas_add_custom_gallery') ) {
 
 		$i = 0;
 		$grid = $columns;
-		$clearing = ( isset( $attr['link'] ) && 'file' == $attr['link'] ) ? 'data-clearing' : '';
-		
-		$output .= "<{$itemtag} class='large-block-grid-{$grid} small-block-grid-2 gallery-item clearing-thumbs' {$clearing}>";
+	
+		$output .= "<{$itemtag} class='large-block-grid-{$grid} small-block-grid-2 gallery-item clearing-thumbs'>";
 		
 		foreach ( $attachments as $id => $attachment ) {
-			$link = isset( $attr['link'] ) && 'file' == $attr['link'] ? wp_get_attachment_link( $id, $size, false, false ) : wp_get_attachment_link( $id, $size, true, false );
-			
+			$thumb_image_attributes = wp_get_attachment_image_src( $id, $size );
+			$full_image_attributes = wp_get_attachment_image_src( $id, 'full' );
+			// $link = isset( $attr['link'] ) && 'file' == $attr['link'] ? wp_get_attachment_link( $id, $size, false, false ) : wp_get_attachment_link( $id, $size, true, false );
+
+			$link =  '<a href="'.$full_image_attributes[0].'" rel="prettyPhoto['.$selector.']"><img src="'.$thumb_image_attributes[0].'"></a>';
+
 			$output .= "
 				<{$icontag} class='gallery-icon'>
 					$link
@@ -270,6 +275,7 @@ if ( !function_exists('bas_add_custom_gallery') ) {
 		$output .= "</div>\n";
 
 		return $output;
+    	wp_reset_query();
 	}
 }
 
@@ -773,4 +779,5 @@ if ( !function_exists('bas_clean_shortcodes') ) {
 		return $content;
 	}
 	add_filter('the_content', 'bas_clean_shortcodes');
+	add_filter('the_excerpt', 'bas_clean_shortcodes');
 }

@@ -5,18 +5,6 @@
 /*--------------------------------------*/
 
     /**
-     * Gets the post footer for each blog post
-     *
-     * @return var
-     */
-	if ( !function_exists('bas_get_post_footer') ) {
-		function bas_get_post_footer() 
-		{
-			echo 'Post Footer';
-		}
-	}
-
-    /**
      * Gets the current logged in users role
      *
      * @return string
@@ -52,12 +40,12 @@
 
 
 	/**
-	 * Get the Carbon Menu
+	 * Get the BAS Main Menu
 	 * 
 	 * @return var
 	 */
-	if ( !function_exists('bas_get_menu') ) {
-		function bas_get_menu() {
+	if ( !function_exists('bas_get_main_menu') ) {
+		function bas_get_main_menu() {
 			if ( has_nav_menu('main-menu') ) 
 			{ 
 				// get the main menu
@@ -70,7 +58,48 @@
 					'depth'           	=> 2,
 					'walker'          	=> new Nav_Bar_Walker()
 				 );		
+				
 				return wp_nav_menu( $defaults );
 			}
 		}
+	}
+
+
+	/**
+	 * Get the BAS Footer Menu
+	 * 
+	 * @return var
+	 */
+	if ( !function_exists('bas_get_footer_menu') ) {
+		function bas_get_footer_menu() {
+			if ( has_nav_menu('footer-menu') ) 
+			{ 
+				// get the main menu
+				$defaults = array( 
+					'theme_location'  	=> 'footer-menu',
+					'container'       	=> false,
+					'menu_class'      	=> 'inline-list left footer-menu',
+					'echo'            	=> true,
+					'fallback_cb'     	=> 'wp_page_menu',
+					'depth'           	=> 2,
+					'walker'          	=> new Nav_Bar_Footer_Walker()
+				 );		
+				
+				return wp_nav_menu( $defaults );
+			}
+		}
+	}	
+
+
+	/**
+	 * Customize the Read More Link
+	 * 
+	 * @return string
+	 */
+	if ( !function_exists('bas_customize_read_more') ) {
+		function bas_customize_read_more($output) {
+			return $output . '<a class="more-link" href="' . get_permalink() . '">Read More</a>';
+		}
+		add_filter( 'the_content_more_link', 'bas_customize_read_more' );
+		add_filter( 'the_excerpt', 'bas_customize_read_more' );
 	}

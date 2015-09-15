@@ -15,16 +15,39 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 4. Footer
 5. Featured Areas
 	5.1 Featured Boxes
-6. Custom Pages
+	5.2 Blog
+	5.3 Page
+	5.4 Portfolio
+	5.5 People
+	5.6 Catalog/Item
+6. Sidebar
+7. Plugins
 */
 
 
 /* 
  * Global
  */
+body {
+	color:#808080;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color:#009D4E;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+}
 
 .row {
 	max-width:72.5rem;
+}
+
+.more-link {
+	text-transform: uppercase;
+	font-weight:900;
 }
 
 /* 
@@ -164,6 +187,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
     z-index: 1;
 }
 
+.slider-overlay-bottom {
+	background: url('includes/sample-data/slider-overlay-hover.png') transparent;
+	height: 260px;
+	position: relative;
+    margin-top: -55px;
+    z-index: 1;
+    opacity:1;
+}
+
 .owl-carousel {
 	position: initial;
 }
@@ -174,7 +206,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 }
 
 	.homepage-slider .owl-wrapper-outer {
-		margin-top: -80px;
+		margin-top: -285px;
 	}
 
 #featured-content .owl-wrapper-outer {
@@ -184,6 +216,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 	.featured-boxes {
 		padding-left: 0.9375rem;
 		padding-right: 0.9375rem;
+	 	margin-bottom: 1.8125rem;
+	 	min-height: 156px;
 	}
 
 	#featured-content .item{
@@ -200,11 +234,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 		.featured-content-caption {
 			display: none;
 		}
-
- .featured-boxes {
- 	margin-bottom: 1.8125rem;
- 	min-height: 156px;
- }
 
 	#featured-content .owl-controls {
 		padding:0px;
@@ -233,14 +262,253 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html http://www.apache.org/lice
 			margin-right: 10px;
 		}
 
+.homepage-content {
+	padding-top:1.8125rem;
+	width:70%;
+	margin:0 auto;
+	border-top:2px solid #ececec;
+}
+
+.homepage-blog-header {
+	margin-bottom:1.8125rem;
+}
+
+.homepage-blog {
+
+}
+
+	.homepage-blog h1 {
+		color:#009D4E;
+		font-size:2rem;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	.homepage-blog .entry-header {
+		margin-bottom:20px;
+		overflow:auto;
+	}
+	.homepage-blog .entry-header .post-meta:before {
+	  	content: "\f02e";
+	  	font-family: FontAwesome;
+	  	float: left;
+		margin-right: 15px;
+		font-size:3rem;
+	}
+	.homepage-blog .entry-header .post-meta h1 {
+		color:#808080;
+		text-transform: none;
+		font-size:1.7rem;
+		font-weight: 500;
+		margin-bottom:0px;
+	}
+	.homepage-blog .entry-header .post-meta h4 {
+		color:#808080;
+		text-transform: uppercase;
+		font-size:0.85rem;
+		font-weight: 400;
+		margin-top:0px;
+	}
+	.meta-detail {
+		color:#018E9C;
+	}
+	.meta-detail a {
+	}
+	.homepage-blog .entry-featured {}
+	.homepage-blog .entry-content {}
+	.homepage-blog .entry-footer {}
+
+	.other-news-btn {
+		background:#C8C8C8;
+		text-transform: uppercase;
+		font-weight: 900;
+		min-width: 370px;
+		letter-spacing: 1.5px;
+		font-size: 19px;
+		font-family: "Open Sans";
+	}
+
+	.other-news-btn a {
+		color:#fff;
+	}
+
+	.other-news-btn:hover {
+		background:#808080;
+		color:#fff;
+	}
+
+
 /* 
  * Footer
  */
 
+.footer {
+ 	margin-top: 40px;
+}
 
+.inline-list > li {
+    margin-right: 1.375rem;
+    margin-left:0px;
+}
+
+.footer-menu > li {
+	text-transform: uppercase;
+	font-size:12px;
+}
+
+.footer-menu > li a {
+	color:#808080;
+}
+
+.copyright p {
+	font-size:12px;
+}
+
+	/*
+	 * The Blog
+	 */ 
+	.entry-body {
+		margin-bottom: 40px;
+	}
+
+		.entry-header h1 {
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+
+		.entry-featured-preview {
+
+		}
+
+		.entry-summary {
+
+		}
+
+		.entry-featured {
+
+		}
+
+		.entry-content {
+			
+		}
+
+			.entry-content img {
+				
+			}
+
+		/* Other Formats */ 
+		.entry-featured-preview-aside {}
+		.entry-featured-aside {}
+
+		.entry-featured-preview-audio { }
+		.entry-featured-audio {}
+
+		.entry-featured-preview-gallery {}
+		.entry-featured-gallery {}
+
+		.entry-featured-preview-image {}
+		.entry-featured-image {}
+
+		.entry-featured-preview-link {}
+		.entry-featured-link {}
+
+		.entry-featured-preview-portfolio {}
+		.entry-featured-portfolio {}
+
+		.entry-featured-preview-quote {}
+		.entry-featured-quote {}
+
+		.entry-featured-preview-status {}
+		.entry-featured-status {}
+
+		.entry-featured-preview-unique {}
+		.entry-featured-unique {}
+
+		.entry-featured-preview-video {}
+		.entry-featured-video {}
+
+	.entry-footer {
+		
+	}
 
 
 /* 
- * Custom Pages
+ * Plugins
  */
+div.dark_square .pp_nav .pp_play {
+	margin-top:-1px;
+}
+.dark_square .pp_close:before{
+	content: "\f00d";
+	font-family: FontAwesome;
+	color:#989898;
+	float:right;
+	text-align:right;
+}
+div.dark_square .pp_close{
+	background:transparent;
+	width: 0px;
+}
 
+div.dark_rounded .currentTextHolder, div.dark_square .currentTextHolder {
+    color: #989898;
+    margin-top: 0px;
+    font-size: 11px;
+}
+
+
+/* 
+ * Sidebar
+ */
+#sidebar-bas-buttons {
+	margin-bottom:20px;
+}
+
+	.button-group.stack > li {
+		margin-bottom:10px;
+	}
+
+		.bas-btn {
+			text-transform: uppercase;
+			background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+			font-weight:900;
+			letter-spacing: 1.5px;
+			font-family: "Open Sans";
+		}
+
+		.btn-acct {
+			border:3px solid #92C83E !important;
+			color:#808080;
+		}
+
+		.btn-acct:hover,.btn-acct:focus,.btn-acct:active {
+			background: #92C83E !important;
+			color:#FFF;
+		}
+
+		.btn-idp {
+			border:3px solid #009D4E !important;
+			color:#808080;
+		}
+
+		.btn-idp:hover,.btn-idp:focus,.btn-idp:active {
+			background:#009D4E !important;
+			color:#FFF;
+		}
+
+		.btn-training {
+			border:3px solid #0096A9 !important;
+			color:#808080;
+		}
+
+		.btn-training:hover,.btn-training:focus,.btn-training:active {
+			background:#0096A9 !important;
+			color:#FFF;
+		}
+
+#sidebar-ads {
+	margin-bottom:20px;
+}
+
+	#sidebar-ads .ad-item {
+		margin-bottom:20px;
+	}

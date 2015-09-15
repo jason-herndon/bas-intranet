@@ -26,6 +26,7 @@
 		array('1c', '2c-l', '2c-r', '3c-l', '3c-r', '3c-c')
 	);
 	add_filter('excerpt_length', 'new_excerpt_length');
+	add_filter('the_excerpt', 'do_shortcode');
 	add_theme_support(
 		'post-formats',
 		array('aside', 'gallery','link', 'image', 'quote', 'status', 'video', 'audio', 'chat')

@@ -40,6 +40,10 @@
 	        wp_register_style( 'owl-transitions', get_template_directory_uri() . '/includes/css/vendor/owl.transitions.css', array(), '1.0', 'all' );
 	        wp_enqueue_style( 'owl-transitions' );
 	        
+	        // Pretty Photo
+	        wp_register_style( 'prettyphoto-css', 'http://cdn.jsdelivr.net/prettyphoto/3.1.5/css/prettyPhoto.css', array(), '1.0', 'all' );
+	        wp_enqueue_style( 'prettyphoto-css' );
+
 	        // For child themes
 	        wp_register_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array(), '1.0', 'all' );
 	        wp_enqueue_style( 'child-style' );
@@ -58,16 +62,20 @@
 		function theme_scripts(){
 
 			// Foundation JS
-			wp_register_script( 'jquery', get_template_directory_uri() . '/includes/js/vendor/jquery.js', array(), '', true );
-			wp_enqueue_script('jquery');
-
-			// Foundation JS
 			wp_register_script( 'foundation-js', get_template_directory_uri() . '/includes/js/foundation.min.js', array('jquery'), '', true );
 			wp_enqueue_script('foundation-js');
 			
 			// OWL Slider
 			wp_register_script( 'owl-js', get_template_directory_uri() . '/includes/js/vendor/owl.carousel.min.js', array('jquery'), '', true );
 			wp_enqueue_script( 'owl-js' );
+
+			// Pretty Photo
+			wp_register_script( 'prettyphoto-js', 'http://cdn.jsdelivr.net/prettyphoto/3.1.5/js/jquery.prettyPhoto.js', array('jquery'), '', true );
+			wp_enqueue_script( 'prettyphoto-js' );
+
+			// Theme JS
+			wp_register_script( 'theme-js', get_template_directory_uri() . '/includes/js/theme.js', array('jquery'), '', true );
+			wp_enqueue_script( 'theme-js' );
 
 		}
 	}

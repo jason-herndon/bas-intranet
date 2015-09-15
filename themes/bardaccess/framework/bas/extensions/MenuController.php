@@ -13,8 +13,11 @@
 	if ( !function_exists('bas_register_menus') ) {
 		function bas_register_menus() {
 
-			register_nav_menu('main-menu', __( 'Main Menu', 'bas'));
-			
+			register_nav_menu('main-menu', __( 'Main Menu', 'bas'));			
+			register_nav_menu('footer-menu', __( 'Footer Menu', 'bas'));
+
 		}
 	}
 	add_action('init', 'bas_register_menus'); 
+
+

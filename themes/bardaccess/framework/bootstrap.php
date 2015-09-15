@@ -11,6 +11,7 @@
 	require_once('bas/HooksController.php');
 	require_once('bas/HelperFunctions.php');
 	require_once('bas/EnqueueController.php');
+	require_once('bas/ColumnsController.php');
 
 	// Register Custom Sidebars, Post Types and Taxonomies
 	require_once('bas/extensions/MenuWalkerController.php');
