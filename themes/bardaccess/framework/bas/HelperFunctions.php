@@ -40,52 +40,22 @@
 
 
 	/**
-	 * Get the BAS Main Menu
+	 * Get the BAS Sidebars
 	 * 
 	 * @return var
 	 */
-	if ( !function_exists('bas_get_main_menu') ) {
-		function bas_get_main_menu() {
-			if ( has_nav_menu('main-menu') ) 
-			{ 
-				// get the main menu
-				$defaults = array( 
-					'theme_location'  	=> 'main-menu',
-					'container'       	=> false,
-					'menu_class'      	=> 'right',
-					'echo'            	=> true,
-					'fallback_cb'     	=> 'wp_page_menu',
-					'depth'           	=> 2,
-					'walker'          	=> new Nav_Bar_Walker()
-				 );		
-				
-				return wp_nav_menu( $defaults );
-			}
-		}
-	}
-
-
-	/**
-	 * Get the BAS Footer Menu
-	 * 
-	 * @return var
-	 */
-	if ( !function_exists('bas_get_footer_menu') ) {
-		function bas_get_footer_menu() {
-			if ( has_nav_menu('footer-menu') ) 
-			{ 
-				// get the main menu
-				$defaults = array( 
-					'theme_location'  	=> 'footer-menu',
-					'container'       	=> false,
-					'menu_class'      	=> 'inline-list left footer-menu',
-					'echo'            	=> true,
-					'fallback_cb'     	=> 'wp_page_menu',
-					'depth'           	=> 2,
-					'walker'          	=> new Nav_Bar_Footer_Walker()
-				 );		
-				
-				return wp_nav_menu( $defaults );
+	if ( !function_exists('bas_get_sidebar') ) {
+		function bas_get_sidebar($name='sidebar', $class='') {
+			if( is_active_sidebar( $name ) ) {
+				?>
+				<div class="widget-wrap">
+					<div class="container">
+						<div class="<?php echo $class; ?> widget-area clearfix">
+						<?php dynamic_sidebar( $name ); ?>
+						</div><!-- .widget-area -->
+					</div><!-- .container -->
+				</div><!-- .widget-wrap -->
+				<?php
 			}
 		}
 	}	

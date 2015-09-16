@@ -19,10 +19,6 @@
         // IF COMING FROM SEARCH.php or ARCHIVE.php
         if ( is_search() || is_archive() ) : ?>
          
-            <div class="entry-featured-preview">
-                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('full'); } ?>
-            </div>
-
             <div class="entry-summary">
                 <?php the_excerpt(); ?>
             </div><!-- .entry-summary -->
@@ -43,10 +39,6 @@
         // IF COMING FROM INDEX or Post Query
         else : ?>
 
-            <div class="entry-featured">
-                <?php if ( has_post_thumbnail() ) { the_post_thumbnail('full'); } ?>
-            </div>
-    
             <div class="entry-summary">
                 <?php the_excerpt(); ?>
             </div><!-- .entry-summary -->

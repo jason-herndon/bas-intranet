@@ -35,9 +35,13 @@ class Nav_Bar_Walker extends Walker_Nav_Menu {
      */
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
   
+		  // Slugify the Title
+		  $title = strtolower(str_replace(' ', '-', $item->title));
+
           $class_names = $value = '';
   
           $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+          $classes[] = 'menu-hover-' . $title;
           $classes[] = 'menu-item-' . $item->ID;
 		  $classes[] = ( $depth == 0 ) ? 'title' : '';
 		  $classes[] = ( $args->has_children ) ? 'has-dropdown' : '';
@@ -53,9 +57,9 @@ class Nav_Bar_Walker extends Walker_Nav_Menu {
 		  // create sections
 		  // $section_class = ( $depth == 0 && in_array('active', $classes) ) ? 'section active' : 'section';
 		  $output .= ( $depth == 0 ) ? '<li class="divider">' : '';
-		  
+
 		  // if top level use p.title else use li in dropdown
-          $output .= ( $depth == 0 ) ? '<li data-section-title' . $id . $value . $class_names .'>' : '<li' . $id . $value . $class_names .'>';
+          $output .= ( $depth == 0 ) ? '<li data-section-title="'.$title.'"' . $id . $value . $class_names .'>' : '<li' . $id . $value . $class_names .'>';
   
           $attributes  = !empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
           $attributes .= !empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';

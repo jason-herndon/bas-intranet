@@ -47,3 +47,7 @@
 	    wp_reset_query();
 	?>
 </div>
+
+
+<!-- INCLUDE THE DEFAULT WP SIDEBAR -->
+<?php bas_get_sidebar(); ?>

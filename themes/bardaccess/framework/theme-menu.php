@@ -43,6 +43,52 @@
 				) );
 
 
+			/*
+			 * // TAB: Menu Settings	
+			 */
+			$panel = $adminPanel->createTab( array(
+		    	'name' => 'Menu Settings',
+		    	'capability' => '',
+		    	'icon' => 'fa fa-cog',
+		    	'id' => 'menu-settings',
+			) );
+				$panel->createOption( array(
+				    'type' => 'save',
+				) );
+				$panel->createOption( array(
+				    'name' => 'About Menu Feature Area',
+				    'id' => 'about_menu_feature',
+				    'type' => 'textarea',
+				) );
+				$panel->createOption( array(
+				    'name' => 'News Menu Feature Area',
+				    'id' => 'news_menu_feature',
+				    'type' => 'note',
+				    'desc' => 'This area pulls in the latest blog post'
+				) );
+				$panel->createOption( array(
+				    'name' => 'Team Menu Feature Area',
+				    'id' => 'team_menu_feature',
+				    'type' => 'textarea',
+				) );
+				$panel->createOption( array(
+				    'name' => 'FAQs Menu Feature Area',
+				    'id' => 'faqs_menu_feature',
+				    'type' => 'note',
+				    'desc' => 'This area gives the user a quick email form'
+				) );
+				$panel->createOption( array(
+				    'name' => 'Forms Menu Feature Area',
+				    'id' => 'forms_menu_feature',
+				    'type' => 'textarea',
+				) );
+				$panel->createOption( array(
+				    'name' => 'Resources Menu Feature Area',
+				    'id' => 'resources_menu_feature',
+				    'type' => 'textarea',
+				) );
+
+
 
 			/*
 			 * // TAB: CSS & JS	
